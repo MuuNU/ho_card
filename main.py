@@ -12,6 +12,13 @@ def username_edited(UN_Name_Line):
     pwd = gn.convertPwd(UN_Name_Line)
     ui.RC_Pass_Line.setText(pwd)
 
+def un_checkbox(RC_Login_CheckBox):
+    if (RC_Login_CheckBox == 0):
+        ui.RC_Login_Line.setReadOnly(True)
+    else:
+        ui.RC_Login_Line.setReadOnly(False)
+
+
 
 
 if __name__ == "__main__":
@@ -21,6 +28,7 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     ui.UN_Name_Line.textChanged.connect(username_edited)
+    ui.RC_Login_CheckBox.stateChanged.connect(un_checkbox)
 
 
     sys.exit(app.exec_())
