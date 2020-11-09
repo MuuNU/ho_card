@@ -21,6 +21,6 @@ if __name__ == "__main__":
     ui.setupUi(MainWindow)
     MainWindow.show()
     ui.UN_Name_Line.textChanged.connect(username_edited)
-    ui.RC_Login_ComboBox.
+
 
     sys.exit(app.exec_())
