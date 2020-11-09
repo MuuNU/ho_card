@@ -5,6 +5,15 @@ from ui.UI import Ui_MainWindow
 import app.GenerateName as gn
 
 
+def binds():
+    ui.RC_Login_Line.setEnabled(False)
+    ui.RC_Pass_Line.setEnabled(False)
+    ui.UN_Name_Line.textChanged.connect(username_edited)
+    ui.RC_Login_CheckBox.stateChanged.connect(rc_un_checkbox)
+    ui.RC_Password_checkBox.stateChanged.connect(rc_pw_checkbox)
+    return True
+
+
 def username_edited(UN_Name_Line):
     lgn = gn.convert(UN_Name_Line)
     lgn = gn.genlogin(lgn)
@@ -31,11 +40,6 @@ if __name__ == "__main__":
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
-    ui.RC_Login_Line.setEnabled(False)
-    ui.RC_Pass_Line.setEnabled(False)
-    ui.UN_Name_Line.textChanged.connect(username_edited)
-    ui.RC_Login_CheckBox.stateChanged.connect(rc_un_checkbox)
-    ui.RC_Password_checkBox.stateChanged.connect(rc_pw_checkbox)
-
+    bnd = binds()
 
     sys.exit(app.exec_())
