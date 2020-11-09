@@ -4,6 +4,10 @@ from PySide2.QtCore import QFile
 from ui.UI import Ui_MainWindow
 import app.GenerateName as gn
 import app.userOptions as uo
+import pprint
+
+def lst():
+    pprint.pprint(uo.list())
 
 
 def binds():
@@ -13,6 +17,7 @@ def binds():
     ui.RC_Login_CheckBox.stateChanged.connect(rc_un_checkbox)
     ui.RC_Password_checkBox.stateChanged.connect(rc_pw_checkbox)
     ui.RC_Create_Button.clicked.connect(rc_create_user)
+    ui.RC_Add_Button.clicked.connect(lst)
     return True
 
 
@@ -52,11 +57,13 @@ def rc_pw_checkbox(RC_Password_checkBox):
 
 
 if __name__ == "__main__":
+
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
     ui = Ui_MainWindow()
     ui.setupUi(MainWindow)
     MainWindow.show()
+
     bnd = binds()
 
     sys.exit(app.exec_())

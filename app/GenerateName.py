@@ -1,6 +1,5 @@
 from random import randint
 
-
 def convert(name):
     name = name.lower()
     name_trans = ''

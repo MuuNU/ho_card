@@ -1,5 +1,6 @@
 from pprint import pprint
 from rocketchat_API.rocketchat import RocketChat
+import json
 
 ##############################################################
 # Login as admin
@@ -34,4 +35,8 @@ def add(rid, uid):
 
 
 def list():
-    pprint(rocket.channels_list().json())
+    list = rocket.groups_list_all().json()
+    list = json.dumps(list)
+    pprint(json.loads('name'))
+
+    return list
