@@ -9,8 +9,12 @@ import app.rc_api as rcapi
 
 def init_list(token, id):
     gname, gid, gcount = rcapi.channels_list(token, id)
+    global gdict
+    gdict = {}
     for i in range(gcount):
         ui.RC_Groups_List.addItem(gname[i])
+        gdict.update({gname[i]:gid[i]})
+    pprint.pprint(gdict)
 
 def binds():
     ui.RC_Login_Line.setEnabled(False)
@@ -24,32 +28,38 @@ def binds():
     return True
 
 def group_add():
+    end_list = {}
     itemR = ui.RC_Groups_List.currentRow()
     Item = ui.RC_Groups_List.currentItem()
     ui.RC_Groups_List.takeItem(itemR)
     ui.RC_Groups_List_2.addItem(Item)
+    current_groups()
 
 def group_delete():
     itemR = ui.RC_Groups_List_2.currentRow()
     Item = ui.RC_Groups_List_2.currentItem()
     ui.RC_Groups_List_2.takeItem(itemR)
     ui.RC_Groups_List.addItem(Item)
+    current_groups()
 
 def current_groups():
-    list = []
-    for i in range(ui.RC_Groups_List_2.count()):
-        list.append(ui.RC_Groups_List_2.item(i).text())
-    return list
+    glist = []
+    for i in range (ui.RC_Groups_List_2.count()):
+        current_name = ui.RC_Groups_List_2.item(i).text()
+        mad = gdict[current_name]
+        glist.append(mad)
+    return glist
 
 def rc_create_user():
     new_login = ui.RC_Login_Line.text()
     new_username = ui.UN_Name_Line.text()
     new_password = ui.RC_Pass_Line.text()
     new_email = ui.EM_Line.text()
-    grup_list = current_groups()
-    print(token)
-    print(id)
-    rcapi.new_user(token, id, new_username, new_email, new_password, new_login)
+    group_list = current_groups()
+    usid, un = rcapi.new_user(token, id, new_username, new_email, new_password, new_login)
+    glist = current_groups()
+    rcapi.add_to_groups(token, id, glist, usid)
+
 
 
 def username_edited(UN_Name_Line):
@@ -76,7 +86,7 @@ def rc_pw_checkbox(RC_Password_checkBox):
 
 
 if __name__ == "__main__":
-    token, id = rcapi.login('testA', 'testAdmin123')
+    token, id = rcapi.login('admin', '19852001Ff')
     app = QApplication(sys.argv)
     MainWindow = QMainWindow()
     ui = Ui_MainWindow()
