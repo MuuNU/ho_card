@@ -25,10 +25,17 @@ def channels_list(token, id):
 
     return gname, gid, data['count']
 
+def new_user(token, aid, name, email, password, login):
+    headers = { 'X-Auth-Token': token,
+                'X-User-Id': aid,
+                'Content-type': 'application/json',}
+    data = {"name": name, "email": email, "password": password, "username": login}
+    response = requests.post('https://chat-7time.ru/api/v1/users.create', headers=headers, data=data)
+    data = (json.loads(response.text))
+    pprint(data)
+
+
 
 
 if __name__ == '__main__':
-    token, id = login('testA', 'testAdmin123')
-    gname, gid = channels_list(token, id)
-    print(gname)
-    print(gid)
+    pass

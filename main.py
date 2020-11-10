@@ -43,14 +43,13 @@ def current_groups():
 
 def rc_create_user():
     new_login = ui.RC_Login_Line.text()
-    print(new_login)
     new_username = ui.UN_Name_Line.text()
-    print(new_username)
     new_password = ui.RC_Pass_Line.text()
-    print(new_password)
     new_email = ui.EM_Line.text()
-    print(new_email)
-    print(current_groups())
+    grup_list = current_groups()
+    print(token)
+    print(id)
+    rcapi.new_user(token, id, new_username, new_email, new_password, new_login)
 
 
 def username_edited(UN_Name_Line):
@@ -85,5 +84,4 @@ if __name__ == "__main__":
     MainWindow.show()
     init_list(token, id)
     bnd = binds()
-
     sys.exit(app.exec_())
