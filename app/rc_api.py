@@ -23,7 +23,7 @@ def channels_list(token, id):
         gname.append(data['groups'][i]['name'])
         gid.append(data['groups'][i]['_id'])
 
-    return gname, gid
+    return gname, gid, data['count']
 
 
 

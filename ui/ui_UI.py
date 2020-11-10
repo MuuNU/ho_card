@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'UIRlfjYy.ui'
+## Form generated from reading UI file 'UIfYrCbF.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.1
 ##
@@ -120,10 +120,10 @@ class Ui_MainWindow(object):
 
         self.horizontalLayout_3.addWidget(self.RC_Pass_Line)
 
-        self.RC_Password_checkBox = QCheckBox(self.layoutWidget)
-        self.RC_Password_checkBox.setObjectName(u"RC_Password_checkBox")
+        self.RC_Password_comboBox = QCheckBox(self.layoutWidget)
+        self.RC_Password_comboBox.setObjectName(u"RC_Password_comboBox")
 
-        self.horizontalLayout_3.addWidget(self.RC_Password_checkBox)
+        self.horizontalLayout_3.addWidget(self.RC_Password_comboBox)
 
 
         self.verticalLayout.addLayout(self.horizontalLayout_3)
@@ -415,8 +415,8 @@ class Ui_MainWindow(object):
         self.label_18.setBuddy(self.RC_Login_Line)
 #endif // QT_CONFIG(shortcut)
         QWidget.setTabOrder(self.RC_Login_Line, self.RC_Pass_Line)
-        QWidget.setTabOrder(self.RC_Pass_Line, self.RC_Password_checkBox)
-        QWidget.setTabOrder(self.RC_Password_checkBox, self.RC_Login_CheckBox)
+        QWidget.setTabOrder(self.RC_Pass_Line, self.RC_Password_comboBox)
+        QWidget.setTabOrder(self.RC_Password_comboBox, self.RC_Login_CheckBox)
         QWidget.setTabOrder(self.RC_Login_CheckBox, self.UN_Name_Line)
         QWidget.setTabOrder(self.UN_Name_Line, self.RC_Create_Button)
 
@@ -434,7 +434,7 @@ class Ui_MainWindow(object):
         self.label_2.setText(QCoreApplication.translate("MainWindow", u"Login", None))
         self.RC_Login_CheckBox.setText(QCoreApplication.translate("MainWindow", u"Edit", None))
         self.label_3.setText(QCoreApplication.translate("MainWindow", u"Password", None))
-        self.RC_Password_checkBox.setText(QCoreApplication.translate("MainWindow", u"Edit", None))
+        self.RC_Password_comboBox.setText(QCoreApplication.translate("MainWindow", u"Edit", None))
         self.label_8.setText(QCoreApplication.translate("MainWindow", u"Select groups:", None))
         self.RC_Add_Button.setText(QCoreApplication.translate("MainWindow", u">>", None))
         self.RC_Delete_Button.setText(QCoreApplication.translate("MainWindow", u"<<", None))

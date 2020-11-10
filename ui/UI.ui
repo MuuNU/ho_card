@@ -58,11 +58,60 @@
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>382</width>
+      <width>381</width>
       <height>401</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
+     <item row="0" column="0">
+      <layout class="QHBoxLayout" name="horizontalLayout_10">
+       <item>
+        <widget class="QLabel" name="label_7">
+         <property name="font">
+          <font>
+           <pointsize>12</pointsize>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="acceptDrops">
+          <bool>false</bool>
+         </property>
+         <property name="text">
+          <string>Rocket Chat</string>
+         </property>
+         <property name="scaledContents">
+          <bool>false</bool>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="login_button">
+         <property name="font">
+          <font>
+           <weight>50</weight>
+           <bold>false</bold>
+          </font>
+         </property>
+         <property name="contextMenuPolicy">
+          <enum>Qt::DefaultContextMenu</enum>
+         </property>
+         <property name="text">
+          <string>login</string>
+         </property>
+         <property name="popupMode">
+          <enum>QToolButton::DelayedPopup</enum>
+         </property>
+         <property name="toolButtonStyle">
+          <enum>Qt::ToolButtonIconOnly</enum>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
      <item row="1" column="0">
       <layout class="QVBoxLayout" name="verticalLayout">
        <item>
@@ -102,7 +151,7 @@
           <widget class="QLineEdit" name="RC_Login_Line"/>
          </item>
          <item>
-          <widget class="QCheckBox" name="RC_Login_ComboBxo">
+          <widget class="QCheckBox" name="RC_Login_CheckBox">
            <property name="text">
             <string>Edit</string>
            </property>
@@ -126,7 +175,7 @@
           <widget class="QLineEdit" name="RC_Pass_Line"/>
          </item>
          <item>
-          <widget class="QCheckBox" name="RC_Password_comboBox">
+          <widget class="QCheckBox" name="RC_Password_checkBox">
            <property name="text">
             <string>Edit</string>
            </property>
@@ -139,38 +188,57 @@
          <item>
           <widget class="QLabel" name="label_8">
            <property name="text">
-            <string>Select group</string>
-           </property>
-           <property name="buddy">
-            <cstring>RC_Group_comboBox</cstring>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QComboBox" name="RC_Group_comboBox">
-           <property name="enabled">
-            <bool>true</bool>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="RC_Add_Button">
-           <property name="text">
-            <string>Add</string>
-           </property>
-          </widget>
-         </item>
-         <item>
-          <widget class="QPushButton" name="RC_Delete_Button">
-           <property name="text">
-            <string>Delete</string>
+            <string>Select groups:</string>
            </property>
           </widget>
          </item>
         </layout>
        </item>
        <item>
-        <widget class="QListWidget" name="RC_Groups_List"/>
+        <layout class="QHBoxLayout" name="horizontalLayout_13">
+         <item>
+          <widget class="QListWidget" name="RC_Groups_List"/>
+         </item>
+         <item>
+          <layout class="QVBoxLayout" name="verticalLayout_6">
+           <item>
+            <widget class="QPushButton" name="RC_Add_Button">
+             <property name="sizePolicy">
+              <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+               <horstretch>0</horstretch>
+               <verstretch>0</verstretch>
+              </sizepolicy>
+             </property>
+             <property name="maximumSize">
+              <size>
+               <width>25</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>&gt;&gt;</string>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QPushButton" name="RC_Delete_Button">
+             <property name="maximumSize">
+              <size>
+               <width>25</width>
+               <height>16777215</height>
+              </size>
+             </property>
+             <property name="text">
+              <string>&lt;&lt;</string>
+             </property>
+            </widget>
+           </item>
+          </layout>
+         </item>
+         <item>
+          <widget class="QListWidget" name="RC_Groups_List_2"/>
+         </item>
+        </layout>
        </item>
        <item>
         <widget class="QPushButton" name="RC_Create_Button">
@@ -183,55 +251,6 @@
         <widget class="QLabel" name="RC_Status_Label">
          <property name="text">
           <string>Status:</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item row="0" column="0">
-      <layout class="QHBoxLayout" name="horizontalLayout_10">
-       <item>
-        <widget class="QLabel" name="label_7">
-         <property name="font">
-          <font>
-           <pointsize>12</pointsize>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="acceptDrops">
-          <bool>false</bool>
-         </property>
-         <property name="text">
-          <string>Rocket Chat</string>
-         </property>
-         <property name="scaledContents">
-          <bool>false</bool>
-         </property>
-         <property name="alignment">
-          <set>Qt::AlignCenter</set>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QToolButton" name="toolButton">
-         <property name="font">
-          <font>
-           <weight>50</weight>
-           <bold>false</bold>
-          </font>
-         </property>
-         <property name="contextMenuPolicy">
-          <enum>Qt::DefaultContextMenu</enum>
-         </property>
-         <property name="text">
-          <string>login</string>
-         </property>
-         <property name="popupMode">
-          <enum>QToolButton::DelayedPopup</enum>
-         </property>
-         <property name="toolButtonStyle">
-          <enum>Qt::ToolButtonIconOnly</enum>
          </property>
         </widget>
        </item>
@@ -588,13 +607,10 @@
  <tabstops>
   <tabstop>RC_Login_Line</tabstop>
   <tabstop>RC_Pass_Line</tabstop>
-  <tabstop>RC_Password_comboBox</tabstop>
-  <tabstop>RC_Login_ComboBxo</tabstop>
+  <tabstop>RC_Password_checkBox</tabstop>
+  <tabstop>RC_Login_CheckBox</tabstop>
   <tabstop>UN_Name_Line</tabstop>
   <tabstop>RC_Create_Button</tabstop>
-  <tabstop>RC_Group_comboBox</tabstop>
-  <tabstop>RC_Delete_Button</tabstop>
-  <tabstop>RC_Groups_List</tabstop>
  </tabstops>
  <resources/>
  <connections/>
