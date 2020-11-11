@@ -152,20 +152,3 @@ def genlogin(a):
         return newName
     except:
         return a[0:-1]
-
-
-
-
-def genlogin1(a):
-    a.upper()
-    index = a.find(' ')
-    newName = ''
-    for i in range(index + 2):
-        if (i < (index + 1)):
-            newName += a[i]
-        else:
-            newName += a[i].upper()
-            print(a[i].upper())
-
-    newName = newName.replace(' ', '')
-    return newName
