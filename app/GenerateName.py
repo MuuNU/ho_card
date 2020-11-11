@@ -16,13 +16,13 @@ def convert(name):
             name_trans += ('g')
         elif (char == 'д'):
             name_trans += ('d')
-        elif (char == 'е'):
+        elif (char == 'е') or (char == 'ё'):
             name_trans += ('e')
         elif (char == 'ж'):
             name_trans += ('zh')
         elif (char == 'з'):
             name_trans += ('z')
-        elif (char == 'и'):
+        elif (char == 'и') or ((char == 'й')):
             name_trans += ('i')
         elif (char == 'к'):
             name_trans += ('k')
@@ -81,7 +81,7 @@ def convertPwd(name):
             name_trans += ('u')
         elif (char == 'д'):
             name_trans += ('l')
-        elif (char == 'е'):
+        elif (char == 'е') or (char == 'ё'):
             name_trans += ('t')
         elif (char == 'ж'):
             name_trans += (';')
@@ -89,6 +89,8 @@ def convertPwd(name):
             name_trans += ('p')
         elif (char == 'и'):
             name_trans += ('b')
+        elif (char == 'й'):
+            name_trans += ('q')
         elif (char == 'к'):
             name_trans += ('r')
         elif (char == 'л'):
@@ -122,7 +124,7 @@ def convertPwd(name):
         elif (char == 'щ'):
             name_trans += ('o')
         elif (char == 'ы'):
-            name_trans += ('i')
+            name_trans += ('s')
         elif (char == 'э'):
             name_trans += ("'")
         elif (char == 'ю'):
@@ -138,9 +140,23 @@ def convertPwd(name):
     name_trans += nmbr
     return name_trans
 
-
-
 def genlogin(a):
+    a.upper()
+    try:
+        if (len(a.split(' ')) == 1):
+            newName = a
+        else:
+            flname = a.split(' ')
+            newName = flname[0] + (flname[1][0].upper())
+
+        return newName
+    except:
+        return a[0:-1]
+
+
+
+
+def genlogin1(a):
     a.upper()
     index = a.find(' ')
     newName = ''
@@ -149,6 +165,7 @@ def genlogin(a):
             newName += a[i]
         else:
             newName += a[i].upper()
+            print(a[i].upper())
 
     newName = newName.replace(' ', '')
     return newName
