@@ -141,7 +141,7 @@ def convertPwd(name):
     return name_trans
 
 def genlogin(a):
-    a.upper()
+    a = convert(a).lower()
     try:
         if (len(a.split(' ')) == 1):
             newName = a
