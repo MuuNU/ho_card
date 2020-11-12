@@ -53,7 +53,7 @@ def current_groups():
     groups_to_add_list = []
     for i in range (ui.RC_Groups_List_2.count()):
         current_name = ui.RC_Groups_List_2.item(i).text()
-        groups_to_add_list.append(groups_to_add_list[current_name])
+        groups_to_add_list.append(group_dict[current_name])
     return groups_to_add_list
 
 
@@ -62,7 +62,7 @@ def rc_create_user():
     new_user_name = ui.UN_Name_Line.text()
     new_user_password = ui.RC_Pass_Line.text()
     new_user_email = ui.EM_Line.text()
-    user_id, user_name = rc.new_user(admin_token, admin_id, new_username, new_email, new_password, new_login, rocket_chat_domain)
+    user_id, user_name = rc.new_user(admin_token, admin_id, new_user_name, new_user_email, new_user_password, new_user_login, rocket_chat_domain)
     groups_to_add_list = current_groups()
     rc.add_to_groups(admin_token, admin_id, groups_to_add_list, user_id, rocket_chat_domain)
 
@@ -90,6 +90,10 @@ def rc_pw_checkbox():
         ui.RC_Pass_Line.setEnabled(False)
 
 
+def rd_init():
+
+
+
 if __name__ == "__main__":
     rocket_chat_domain = 'https://muunull.rocket.chat'
     admin_token, admin_id = rocket_chat_init(rocket_chat_domain)
@@ -100,4 +104,5 @@ if __name__ == "__main__":
     MainWindow.show()
     init_list(admin_token, admin_id)
     bnd = binds()
+    rd_init()
     sys.exit(app.exec_())
